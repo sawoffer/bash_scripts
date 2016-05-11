@@ -12,7 +12,7 @@ gzip=$(which gzip)
 $echo "$($date +%F\ %H:%M:%S) mysqldump begin" >> $log 2>&1
 for db in $($mysql -ABNe "show databases;")
     do
-        dbdir=/adv/backup/mysql-dump/$($date +%F$)/$db
+        dbdir=/adv/backup/mysql-dump/$($date +%F)/$db
         $echo "$($date +%F\ %H:%M:%S) dumping db $db" >> $log 2>&1
         $mkdir -p $dir >> $log 2>&1
         for t in $($mysql -D $db -ABNe "show tables;")
